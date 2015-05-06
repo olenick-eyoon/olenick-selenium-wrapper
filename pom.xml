@@ -13,7 +13,7 @@
     </properties>
 
     <scm>
-        <connection>scm:git:https://github.com/ielia/tests.git</connection>
+        <connection>scm:git:https://github.com/ielia/olenick-selenium-wrapper.git</connection>
         <tag>HEAD</tag>
     </scm>
 

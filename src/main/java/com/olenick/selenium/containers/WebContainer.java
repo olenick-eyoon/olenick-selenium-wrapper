@@ -81,6 +81,7 @@ public abstract class WebContainer<T extends WebContainer> {
     /**
      * Convenience method.
      *
+     * @param elements Selenium Web Elements
      * @return ExtendedWebElementsSetter instance.
      */
     protected ExtendedWebElementsSetter setElements(

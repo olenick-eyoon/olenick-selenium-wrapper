@@ -39,7 +39,7 @@ import org.slf4j.LoggerFactory;
  * <p>
  * When finding an element, please be mindful of the following:
  * 
- * @see: http://docs.seleniumhq.org/docs/04_webdriver_advanced.jsp
+ * see: http://docs.seleniumhq.org/docs/04_webdriver_advanced.jsp
  *       </p>
  */
 public class ExtendedRemoteWebDriver implements WebDriver, WrapsDriver,

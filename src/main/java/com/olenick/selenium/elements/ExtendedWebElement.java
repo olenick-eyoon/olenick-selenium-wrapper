@@ -177,9 +177,9 @@ public class ExtendedWebElement implements WebElement {
         List<WebElement> originalElements = element.findElements(by);
         List<WebElement> elementsToReturn = new ArrayList<>(
                 originalElements.size());
-        for (WebElement elementToReturn : elementsToReturn) {
+        for (WebElement originalElement : originalElements) {
             elementsToReturn.add(new ExtendedWebElement(this.container,
-                    elementToReturn));
+                    originalElement));
         }
         return elementsToReturn;
     }

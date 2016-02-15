@@ -50,7 +50,7 @@ public class ExtendedRemoteWebDriver implements WebDriver, WrapsDriver,
             .getLogger(ExtendedRemoteWebDriver.class);
 
     // TODO: Move this to configuration
-    private static final long DEFAULT_TIMEOUT_IN_SECONDS = 60;
+    private static final long DEFAULT_TIMEOUT_IN_SECONDS = 120;
 
     private RemoteWebDriver underlyingDriver;
 

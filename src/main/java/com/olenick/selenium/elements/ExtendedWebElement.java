@@ -8,7 +8,9 @@ import javax.validation.constraints.Null;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.Dimension;
+import org.openqa.selenium.OutputType;
 import org.openqa.selenium.Point;
+import org.openqa.selenium.WebDriverException;
 import org.openqa.selenium.WebElement;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -263,5 +265,9 @@ public class ExtendedWebElement implements WebElement {
         sb.append(", underlyingWebElement=").append(underlyingWebElement);
         sb.append('}');
         return sb.toString();
+    }
+
+    public <X> X getScreenshotAs(OutputType<X> outputType) throws WebDriverException {
+        return this.safeGetUnderlyingWebElement().getScreenshotAs(outputType);
     }
 }

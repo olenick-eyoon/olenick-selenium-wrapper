@@ -6,12 +6,19 @@ import java.util.List;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Null;
 
+import com.olenick.selenium.model.Event;
+import com.olenick.selenium.model.Reaction;
+import com.olenick.selenium.model.Command;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Dimension;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.Point;
 import org.openqa.selenium.WebDriverException;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.remote.RemoteWebDriver;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -29,8 +36,9 @@ import com.olenick.selenium.exceptions.ElementNotLoadedException;
  *      </p>
  */
 public class ExtendedWebElement implements WebElement {
-    private static final Logger log = LoggerFactory
-            .getLogger(ExtendedWebElement.class);
+    private static final Logger log = LoggerFactory.getLogger(ExtendedWebElement.class);
+
+    private static final int EXPLICIT_WAIT_SECS = 10;
 
     @Null
     protected final WebContainer container;
@@ -77,6 +85,12 @@ public class ExtendedWebElement implements WebElement {
         } finally {
             log.trace("{}.click()", element);
         }
+
+        //Adding a wait for the click to avoid "Element is not clickable at point"
+        WebDriverWait wait = new WebDriverWait(this.container.getDriver(), EXPLICIT_WAIT_SECS);
+
+        //If it's clickable
+        wait.until(ExpectedConditions.elementToBeClickable(element));
         element.click();
     }
 
